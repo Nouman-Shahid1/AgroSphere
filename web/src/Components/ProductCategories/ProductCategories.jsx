@@ -1,55 +1,84 @@
-import React from "react";
 
-import { FaSeedling, FaFlask, FaBug, FaTractor, FaLeaf, FaWater } from "react-icons/fa";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
+import React from "react";
 
 const ProductCategories = () => {
   const categories = [
-    { title: "Seeds", desc: "Top-quality seeds for high-yield crops.", icon: <FaSeedling size={40} className="text-white" /> },
-    { title: "Fertilizers", desc: "Organic and chemical fertilizers for soil nourishment.", icon: <FaFlask size={40} className="text-white" /> },
-    { title: "Pesticides", desc: "Protect crops with safe and effective pesticides.", icon: <FaBug size={40} className="text-white" /> },
-    { title: "Machinery", desc: "Advanced farming equipment and tools.", icon: <FaTractor size={40} className="text-white" /> },
-    { title: "Organic Farming", desc: "Sustainable and eco-friendly farming solutions.", icon: <FaLeaf size={40} className="text-white" /> },
-    { title: "Irrigation", desc: "Efficient water management solutions.", icon: <FaWater size={40} className="text-white" /> },
+    { 
+      title: "Seeds", 
+      desc: "Top-quality seeds for high-yield crops",
+      icon: "🌱"
+    },
+    { 
+      title: "Fertilizers", 
+      desc: "Organic and chemical soil nourishment",
+      icon: "🧪"
+    },
+    { 
+      title: "Pesticides", 
+      desc: "Safe crop protection solutions",
+      icon: "🛡️"
+    },
+    { 
+      title: "Machinery", 
+      desc: "Advanced farming equipment",
+      icon: "🚜"
+    },
+    { 
+      title: "Organic Farming", 
+      desc: "Eco-friendly solutions",
+      icon: "🌍"
+    },
+    { 
+      title: "Irrigation", 
+      desc: "Smart water management systems",
+      icon: "💧"
+    },
   ];
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    nextArrow: null, 
-    prevArrow: null,  
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
-    ],
-  };
-
   return (
-    <section className="text-center py-12 px-6">
-      <h1 className="text-5xl font-extrabold text-green-700 drop-shadow-md">Our Products</h1>
-      <p className="mt-3  text-2xl text-black">Explore our premium agricultural products to boost your farming productivity.</p>
+    <section className="py-14 bg-green-600">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-bold text-white mb-3">
+            Product Categories
+          </h2>
+          <div className="relative inline-block">
+            <p className="text-4xl font-semibold text-black mb-4">
+              Farming Essentials
+            </p>
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-green-300 rounded-full"></div>
+          </div>
+        </div>
 
-      <div className="relative mt-10 max-w-6xl mx-auto">
-        <Slider {...settings}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 lg:px-8">
           {categories.map((item, index) => (
-            <div key={index} className="p-6">
-              <div className="relative p-8 w-80 h-96 mx-auto bg-gradient-to-br from-green-700 to-green-900 bg-opacity-80 rounded-xl shadow-lg transition-transform hover:scale-105 hover:shadow-2xl border border-green-500 backdrop-blur-lg">
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-600 p-4 rounded-full shadow-md">
+            <div 
+              key={index}
+              className="relative p-8 bg-white rounded-2xl border-2 border-green-100 
+                      hover:border-green-300 transition-all duration-300 
+                      hover:bg-gradient-to-b from-green-50/30 to-white
+                      shadow-xl hover:shadow-2xl transform hover:-translate-y-2
+                      flex flex-col justify-center h-72 group"
+            >
+              <div className="mb-4">
+                <div className="w-16 h-16 mb-6 rounded-full bg-green-100 flex items-center justify-center text-3xl transition-colors duration-300 group-hover:bg-green-200">
                   {item.icon}
                 </div>
-                <h2 className="text-2xl font-bold mt-20 text-white">{item.title}</h2>
-                <p className="mt-4 text-lg text-gray-200">{item.desc}</p>
+                <h3 className="text-3xl font-bold text-green-800 mb-4 relative pb-3">
+                  {item.title}
+                  <div className="absolute bottom-0 left-0 w-12 h-1 bg-green-400 rounded-full"></div>
+                </h3>
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
+              
+              {/* Hover line effect */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-green-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
-        </Slider>
+        </div>
       </div>
     </section>
   );
