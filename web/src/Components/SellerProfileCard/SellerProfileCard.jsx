@@ -6,13 +6,11 @@ const SellerProfileCard = ({ details }) => {
 
   return (
     <div className="w-full md:w-1/2">
-      <div className="group relative md:mt-0 mt-8 me-4 transition-transform duration-500 hover:scale-105 shadow-xl bg-gradient-to-t from-green-900 via-emerald-700 to-green-600 rounded-[32px] p-6 overflow-hidden border border-green-800">
-        {/* Hover Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-green-500 to-lime-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-[32px]"></div>
+      <div className="group relative md:mt-0 mt-8 me-4 transition-transform duration-500 hover:scale-105 shadow-xl bg-gradient-to-r from-green-700 via-green-800 to-green-900 rounded-[32px] p-6 overflow-hidden border border-green-800">
+       
+        <div className="absolute inset-0 bg-green-900  opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-[32px]"></div>
 
-        {/* Content */}
         <div className="relative z-10 flex flex-col justify-between h-full">
-          {/* Title and Icon */}
           <div className="flex items-center justify-between mb-6">
             <h2 className="font-semibold text-xl md:text-2xl text-white group-hover:text-lime-200 transition-colors duration-300">
               {name}
@@ -28,7 +26,6 @@ const SellerProfileCard = ({ details }) => {
             </div>
           </div>
 
-          {/* Action Section */}
           <div className="flex items-center justify-between">
             <p className="font-medium text-lg md:text-xl text-lime-300 group-hover:text-white transition-colors duration-300">
               View All
