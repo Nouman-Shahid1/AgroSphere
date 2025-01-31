@@ -1,7 +1,11 @@
+import Footer from '@/src/Components/Footer/Footer';
+import Navbar from '@/src/Components/Navbar/Navbar';
 import Image from 'next/image';
 
 const page = () => {
   return (
+    <>
+    <Navbar/>
     <div className="bg-green-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
@@ -12,7 +16,6 @@ const page = () => {
             Your one-stop agriculture mart, providing innovative solutions, premium-quality products, and expert guidance to farmers and agricultural enthusiasts.
           </p>
         </div>
-
         <div className="relative mt-12">
           <Image
             src="/about.png"
@@ -122,6 +125,8 @@ const page = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
