@@ -1,6 +1,10 @@
+import Footer from "@/src/Components/Footer/Footer";
+import Navbar from "@/src/Components/Navbar/Navbar";
+
 export default function Contact() {
     return (
       <>
+      <Navbar/>
         <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="text-center">
@@ -135,6 +139,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
+        <Footer/>
       </>
     );
   }
