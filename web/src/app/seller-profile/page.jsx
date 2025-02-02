@@ -1,5 +1,7 @@
 import Profile from '@/src/Components/Profile/Profile'
 import SellerProfileCard from '@/src/Components/SellerProfileCard/SellerProfileCard'
+import Services from "../../assets/images/services.png";
+import Amenities from "../../assets/images/amenities.png";
 import React from 'react'
 
 const page = () => {
@@ -24,43 +26,43 @@ const page = () => {
           <SellerProfileCard
             details={{
               name: "ALL PRODUCTS",
-              url: "/seller-profile/",
+              url: "",
             }}
           />
            <SellerProfileCard
             details={{
               name: "PESTICIDES",
-              url: "/seller-profile/",
+              src:Amenities ,
             }}
           />
            <SellerProfileCard
             details={{
               name: "SEEDS",
-              url: "/seller-profile/",
+              src:Amenities ,
             }}
           />
            <SellerProfileCard
             details={{
               name: "FERTILIZERS",
-              url: "/seller-profile/",
+              src:Amenities ,
             }}
           />
           <SellerProfileCard
             details={{
               name: "MACHINES",
-              url: "/seller-profile/",
+              src:Amenities ,
             }}
           />
           <SellerProfileCard
             details={{
               name: "RENTAL MACHINES",
-              url: "/seller-profile/",
+              src:Amenities ,
             }}
           />
           <SellerProfileCard
             details={{
               name: "Settings",
-              url: "/seller-profile/",
+              src:Amenities ,
             }}
           />
           </div>

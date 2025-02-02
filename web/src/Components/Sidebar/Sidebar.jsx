@@ -25,11 +25,11 @@ export default function SellerProfile() {
           <ul className="space-y-4">
             {[
               { name: "HOME", icon: <Home className="w-5 h-5" /> },
-              { name: "PESTICIDES", icon: <ShoppingCart className="w-5 h-5" /> },
-              { name: "SEEDS", icon: <Leaf className="w-5 h-5" /> },
-              { name: "FERTILIZERS", icon: <Wrench className="w-5 h-5" /> },
-              { name: "MACHINES", icon: <Tractor className="w-5 h-5" /> },
-              { name: "RENTAL MACHINES", icon: <Tractor className="w-5 h-5" /> },
+              { name: "My PRODUCTS", icon: <ShoppingCart className="w-5 h-5" /> },
+              { name: "ORDERS", icon: <Leaf className="w-5 h-5" /> },
+              { name: "EARNINGS", icon: <Wrench className="w-5 h-5" /> },
+              { name: "ANALYTICS", icon: <Tractor className="w-5 h-5" /> },
+              { name: "CHATS", icon: <Tractor className="w-5 h-5" /> },
               { name: "SETTINGS", icon: <Settings className="w-5 h-5" /> },
             ].map(({ name, icon }) => (
               <li key={name}>
