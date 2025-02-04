@@ -2,22 +2,38 @@
 import React, { useState } from "react";
 import { CiSearch, CiEdit } from "react-icons/ci";
 import { FaTrash, FaPlusCircle } from "react-icons/fa";
+
 import CreateProduct from "../CreateProduct/CreateProduct";
 import DeleteProduct from "../DeleteProduct/DeleteProduct";
+import CreateCategory from "../CreateCategory/CreateCategory";
+import CreatePesticide from "../CreatePesticide/CreatePesticide";
+import CreateSeed from "../CreateSeed/CreateSeed";
+import CreateMachine from "../CreateMachine/CreateMachine";
 
-const ProductTable = ({ name }) => {
+const ProductTable = ({ name,product , machine, seed, pesticide, category, rental }) => {
   const [showAddProduct, setShowAddProduct] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showAddMachine, setShowAddMachine] = useState(false);
+  const [showAddSeed, setShowAddSeed] = useState(false);
+  const [showAddPesticide, setShowAddPesticide] = useState(false);
+  const [showAddCategory, setShowAddCategory] = useState(false);
+ 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleAddProduct = () => setShowAddProduct(true);
-  const handleDelete = (product) => {
-    setSelectedProduct(product);
-    setShowDeleteModal(true);
-  };
+  const handleDelete = () => setShowDeleteModal(true);
+  const handleAddMachine = () => setShowAddMachine(true);
+  const handleAddSeed = () => setShowAddSeed(true);
+  const handleAddPesticide = () => setShowAddPesticide(true);
+  const handleAddCategory = () => setShowAddCategory(true)
+ 
 
-  // 10 dummy product data
+  // const handleDelete = (product) => {
+  //   setSelectedProduct(product);
+  //   setShowDeleteModal(true);
+  // };
+
   const products = [
     { id: 1, icon: "/blank.png", title: "Product 1", description: "Description of Product 1", category: "Category A" },
     { id: 2, icon: "/blank.png", title: "Product 2", description: "Description of Product 2", category: "Category B" },
@@ -46,11 +62,27 @@ const ProductTable = ({ name }) => {
         <div className="flex flex-col md:flex-row md:items-center md:space-x-6 mt-6 md:mt-0">
           <button
             className="py-3 px-6 bg-white text-teal-700 rounded-xl shadow-lg hover:bg-teal-50 hover:text-teal-800 transition duration-300 flex items-center space-x-3"
-            onClick={handleAddProduct}
-            aria-label="Add new product"
+            onClick={
+              machine
+                ? handleAddMachine
+                : seed
+                  ? handleAddSeed
+                  : pesticide
+                    ? handleAddPesticide
+                    : category
+                      ? handleAddCategory
+                        : handleAddProduct
+
+            }
           >
             <FaPlusCircle className="text-xl" />
-            <span className="font-medium">Add New Product</span>
+            <span>
+              {machine && "Add New Machine"}
+              {seed && "Add New Seed"}
+              {pesticide && "Add New Pesticide"}
+              {product && "Add New Product"}
+              {category && "Add New Category"}
+            </span>
           </button>
 
           {/* Search Input */}
@@ -81,7 +113,11 @@ const ProductTable = ({ name }) => {
               <th className="py-5 px-8 text-center font-semibold">Icon</th>
               <th className="py-5 px-8 text-left font-semibold">Title</th>
               <th className="py-5 px-8 text-left font-semibold">Description</th>
-              <th className="py-5 px-8 text-left font-semibold">Category</th>
+              {
+                !category ?
+                  <th className="py-4 px-6 text-left font-semibold">Description</th>
+                  : null
+              }
               <th className="py-5 px-8 text-center font-semibold">Actions</th>
             </tr>
           </thead>
@@ -92,9 +128,8 @@ const ProductTable = ({ name }) => {
               filteredProducts.map((product, index) => (
                 <tr
                   key={product.id}
-                  className={`border-b ${
-                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
-                  } hover:bg-teal-50 transition duration-300`}
+                  className={`border-b ${index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                    } hover:bg-teal-50 transition duration-300`}
                 >
                   {/* Icon */}
                   <td className="py-5 px-8 text-center">
@@ -110,11 +145,11 @@ const ProductTable = ({ name }) => {
                     {product.title}
                   </td>
 
-                  {/* Description */}
-                  <td className="py-5 px-8 text-gray-700">
-                    {product.description}
-                  </td>
-
+                  {
+                    !category ?
+                      <td className="py-4 px-6 text-left font-semibold">Description</td>
+                      : null
+                  }
                   {/* Category */}
                   <td className="py-5 px-8 text-gray-700">{product.category}</td>
 
@@ -124,8 +159,18 @@ const ProductTable = ({ name }) => {
                       {/* Edit Button */}
                       <button
                         className="bg-teal-500 text-white p-3 rounded-full shadow-lg hover:bg-teal-600 hover:shadow-xl transition duration-300"
-                        onClick={handleAddProduct}
-                        aria-label="Edit product"
+                        onClick={
+                          machine
+                            ? handleAddMachine
+                            : seed
+                              ? handleAddSeed
+                              : pesticide
+                                ? handleAddPesticide
+                                : category
+                                  ? handleAddCategory
+                                    : handleAddProduct
+            
+                        }                        aria-label="Edit product"
                       >
                         <CiEdit size={18} />
                       </button>
@@ -152,12 +197,34 @@ const ProductTable = ({ name }) => {
           </tbody>
         </table>
       </div>
-
-      {/* Modals */}
-      <CreateProduct
-        showAddProduct={showAddProduct}
-        setShowAddProduct={setShowAddProduct}
-      />
+      {machine && (
+        <CreateMachine
+          showAddMachine={showAddMachine}
+          setShowAddMachine={setShowAddMachine}
+        />
+      )}
+      {category && (
+        <CreateCategory
+          showAddCategory={showAddCategory}
+          setShowAddCategory={setShowAddCategory}
+        />
+      )}
+      {seed && (
+        <CreateSeed showAddSeed={showAddSeed} setShowAddSeed={setShowAddSeed} />
+      )}
+     
+      {pesticide && (
+        <CreatePesticide
+          showAddPesticide={showAddPesticide}
+          setShowAddPesticide={setShowAddPesticide}
+        />
+      )}
+      {product && (
+        <CreateProduct
+          showAddProduct={showAddProduct}
+          setShowAddProduct={setShowAddProduct}
+        />
+      )}
       <DeleteProduct
         showDeleteModal={showDeleteModal}
         setShowDeleteModal={setShowDeleteModal}
