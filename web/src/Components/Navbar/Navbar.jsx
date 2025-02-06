@@ -2,6 +2,8 @@ import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { ImCart } from "react-icons/im";
 import { FiMenu } from "react-icons/fi";
+import Link from "next/link"; 
+
 
 const Navbar = () => {
   return (
@@ -11,13 +13,17 @@ const Navbar = () => {
         <h1 className="text-4xl uppercase font-bold">AgroSphere</h1>
         </div>
         <ul className="hidden lg:inline-flex items-center gap-8 uppercase text-base font-semibold"> {/* Text size increased */}
-          <li className="navbarLi">HOME</li>
+          <li className="navbarLi">
+          <Link href="/">HOME</Link>
+          </li>
           <li className="navbarLi">PESTICIDES</li>
           <li className="navbarLi">SEEDS</li>
           <li className="navbarLi">FERTILIZERS</li>
           <li className="navbarLi">MACHINES</li>
           <li className="navbarLi">RENTAL MACHINES</li>
-          <li className="navbarLi">ABOUT US</li>
+          <li className="navbarLi">
+          <Link href="/about-us">ABOUT US</Link>
+          </li>
         </ul>
         <div className="hidden lg:inline-flex gap-8 items-center">
           
@@ -34,12 +40,13 @@ const Navbar = () => {
 
 
         </div>
-        {/* <div className="inline-flex lg:hidden">
+        <div className="inline-flex lg:hidden">
           <FiMenu className="text-3xl" />
-        </div> */}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Navbar;
+
