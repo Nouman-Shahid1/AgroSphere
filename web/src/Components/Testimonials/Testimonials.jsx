@@ -27,13 +27,13 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="bg-gray-50 py-16"> {/* Reduced padding from top */}
+    <div className="bg-gray-50 py-16"> 
       <div className="container mx-auto text-center">
         <h2 className="text-5xl md:text-5xl font-bold text-green-700 mb-8">
           What Our Clients Say
         </h2>
 
-        {/* New paragraph or heading with 10 words */}
+        
         <p className="text-xl text-black-600 mb-6">
           Discover how our innovative solutions have transformed farming.
         </p>
