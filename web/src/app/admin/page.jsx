@@ -1,19 +1,20 @@
 "use client";
+import Profile from "@/src/Components/Profile/Profile";
 import React from "react";
 import { FaHome, FaUsers, FaSeedling, FaLeaf, FaTruck, FaTools, FaInfoCircle } from "react-icons/fa";
 
 const AdminPage = () => {
   return (
-    <div className="font-sans bg-green-200 min-h-screen">
+    <div className="font-sans bg-green-100 min-h-screen">
       <div className="max-w-screen-2xl mx-auto px-4 py-8">
        
-        <header className="mb-12 text-center">
+        {/* <header className="mb-12 text-center">
           <h1 className="text-5xl font-bold text-green-700 mb-3"> Admin</h1>
           <p className="text-gray-600 text-lg">Manage your agricultural resources and operations</p>
-        </header>
+        </header> */}
 
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <Profile/>
+        <div className="grid grid-cols-1 my-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
          
           {[
             { icon: <FaHome />, title: "Home", color: "bg-gray-50" },
@@ -31,11 +32,14 @@ const AdminPage = () => {
                 <div className="p-4 bg-white rounded-xl text-2xl text-green-700 group-hover:bg-green-50 transition-colors">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-black">{item.title}</h3>
               </div>
-              <p className="mt-4 text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="text-black">
+              <p className="mt-4 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                 Manage {item.title.toLowerCase()} and related resources
               </p>
+              </div>
+                
             </div>
           ))}
         </div>

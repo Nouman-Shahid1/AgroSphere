@@ -3,6 +3,8 @@ import Navbar from "../Components/Navbar/Navbar";
 import Footer from "../Components/Footer/Footer";
 import Features from "../Components/Features/Features";
 import ProductCategories from "../Components/ProductCategories/ProductCategories";
+import Testimonials from "../Components/Testimonials/Testimonials";
+import Newsletter from "../Components/NewsLetter/NewsLetter";
 
 export default function Page() {
   return (
@@ -42,11 +44,16 @@ export default function Page() {
       <Features />
 
      
+
+     
       <div className="bg-gradient-to-b from-white to-gray-50 py-20">
         <ProductCategories />
       </div>
 
-      
+      <Testimonials/>
+
+      <Newsletter/>
+
       <Footer />
     </div>
   );

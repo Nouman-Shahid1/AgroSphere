@@ -22,19 +22,22 @@ export default function SellerProfile() {
           </button>
         </div>
         <nav className="mt-6">
+          <Link href="/seller-profile">
+          <p className="text-2xl text-white font-extrabold text-center py-8">Dashboard</p>
+          </Link>
           <ul className="space-y-4">
             {[
-              { name: "HOME", icon: <Home className="w-5 h-5" /> },
-              { name: "PESTICIDES", icon: <ShoppingCart className="w-5 h-5" /> },
-              { name: "SEEDS", icon: <Leaf className="w-5 h-5" /> },
-              { name: "FERTILIZERS", icon: <Wrench className="w-5 h-5" /> },
-              { name: "MACHINES", icon: <Tractor className="w-5 h-5" /> },
-              { name: "RENTAL MACHINES", icon: <Tractor className="w-5 h-5" /> },
+             
+              { name: "My PRODUCTS", icon: <ShoppingCart className="w-5 h-5" /> },
+              { name: "ORDERS", icon: <Leaf className="w-5 h-5" /> },
+              { name: "EARNINGS", icon: <Wrench className="w-5 h-5" /> },
+              { name: "ANALYTICS", icon: <Tractor className="w-5 h-5" /> },
+              { name: "CHATS", icon: <Tractor className="w-5 h-5" /> },
               { name: "SETTINGS", icon: <Settings className="w-5 h-5" /> },
             ].map(({ name, icon }) => (
               <li key={name}>
                 <Link
-                  href="#"
+                 href={`/seller-profile/${name.toLocaleLowerCase().replace(/\s+/g, '-')}`}
                   className="flex gap-4 items-center px-6 py-3 text-white hover:bg-green-600 hover:text-white font-bold rounded-md transition-colors duration-300"
                 >
                   <div className="mr-4">{icon}</div>
