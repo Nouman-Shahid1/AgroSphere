@@ -12,7 +12,7 @@ const ProductCategories = () => {
     { 
       title: "Fertilizers", 
       desc: "Organic and chemical soil nourishment",
-      icon: "🧪"
+      icon: "🌿"
     },
     { 
       title: "Pesticides", 
@@ -24,16 +24,7 @@ const ProductCategories = () => {
       desc: "Advanced farming equipment",
       icon: "🚜"
     },
-    { 
-      title: "Organic Farming", 
-      desc: "Eco-friendly solutions",
-      icon: "🌍"
-    },
-    { 
-      title: "Irrigation", 
-      desc: "Smart water management systems",
-      icon: "💧"
-    },
+    
   ];
 
   return (

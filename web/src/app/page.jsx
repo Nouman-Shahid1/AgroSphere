@@ -5,6 +5,8 @@ import Features from "../Components/Features/Features";
 import ProductCategories from "../Components/ProductCategories/ProductCategories";
 import Testimonials from "../Components/Testimonials/Testimonials";
 import Newsletter from "../Components/NewsLetter/NewsLetter";
+import Benefits from "../Components/Benifits/Benifits";
+import Product from "../Components/Product/Product";
 
 export default function Page() {
   return (
@@ -38,22 +40,32 @@ export default function Page() {
             </button>
           </div>
         </div>
+       
       </div>
-
-      
-      <Features />
-
-     
-
      
       <div className="bg-gradient-to-b from-white to-gray-50 py-20">
         <ProductCategories />
       </div>
+      <Product/>
+      <br />
+      <br />
+      <br />
+      <Benefits/>
+      <br />
+      <br />
+      <br />
 
       <Testimonials/>
 
-      <Newsletter/>
 
+      {/* <Features /> */}
+      <br />
+      <br />
+      <br />
+      <Newsletter/>
+      <br />
+      <br />
+      <br />
       <Footer />
     </div>
   );
