@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
-const { dproductRouter } = require('./routes/productRoutes');
+const productRouter = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 dotenv.config();
 connectDB();
@@ -14,17 +15,20 @@ const app = express();
 
 app.use(express.json());
 app.use(bodyParser.json());
+
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
 app.use(cors({
-    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000", // Allow frontend origin
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"], // Include Cache-Control header
+    origin: process.env.CLIENT_ORIGIN || "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
 }));
 
-app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/auth', authRoutes);
+
+app.use('/api/product', productRouter);
 
 app.use((req, res, next) => {
     res.status(404).json({ message: 'API endpoint not found' });
@@ -37,8 +41,6 @@ app.use((err, req, res, next) => {
         stack: process.env.NODE_ENV === 'production' ? null : err.stack,
     });
 });
-
-app.use('/api/product', productRouter)
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
