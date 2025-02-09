@@ -4,8 +4,8 @@ const Newsletter = () => {
   return (
     <div className="bg-green-100 text-green-700 py-16 px-6">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-4">Subscribe to Our Newsletter</h2>
-        <p className="text-lg mb-6">
+        <h2 className="text-5xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+        <p className="text-lg mb-6 text-black">
           Stay updated with the latest trends in agriculture & technology.
         </p>
         
