@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 const productRouter = require('./routes/productRoutes');
+const orderRouter = require('./routes/orderRoute');
 const authRoutes = require('./routes/authRoutes');
 
 dotenv.config();
@@ -27,8 +28,9 @@ app.use(cors({
 }));
 
 app.use('/api/auth', authRoutes);
-
+app.use("/uploads", express.static("uploads")); 
 app.use('/api/product', productRouter);
+app.use('/api/order', orderRouter);
 
 app.use((req, res, next) => {
     res.status(404).json({ message: 'API endpoint not found' });
