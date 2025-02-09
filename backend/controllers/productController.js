@@ -1,10 +1,12 @@
-const express = require("express");
-const { listProduct } = require("../controllers/productController"); 
+const productModel = require("../models/product");
 
-console.log("listProduct:", listProduct); 
+const listProduct = async (req, res) => {
+    try {
+        const products = await productModel.find({});
+        res.json({ success: true, products });
+    } catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+};
 
-const productRouter = express.Router();
-
-productRouter.get("/list", listProduct); 
-
-module.exports = productRouter;
+module.exports = { listProduct }; 
