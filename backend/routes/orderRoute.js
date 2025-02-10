@@ -1,5 +1,5 @@
 const express = require("express")
-const {placeOrder,allOrders,userOrders,updateOrderStatus} = require("../models/orderModel")
+const {placeOrder,allOrders,userOrders,updateOrderStatus} = require("../controllers/orderController")
 
 const  orderRouter= express.Router()
 
@@ -8,4 +8,4 @@ orderRouter.post('/status',updateOrderStatus)
 orderRouter.post('/place',placeOrder)
 orderRouter.post('/userorders',userOrders)
 
-module.export = orderRouter;
+module.exports = orderRouter;

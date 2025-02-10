@@ -1,5 +1,4 @@
 const orderModel = require("../models/orderModel.js")
-import userModel from '../models/usersModel.js'
 const userModel = require("../models/User.js")
 const placeOrder = async(req,res)=>{
 try {
@@ -60,4 +59,4 @@ try {
     res.json({success:false,message:error.message})
 }
 }
-module.export= {placeOrder,allOrders,userOrders,updateOrderStatus}
+module.exports= {placeOrder,allOrders,userOrders,updateOrderStatus}
