@@ -8,6 +8,7 @@ const connectDB = require('./config/db');
 const productRouter = require('./routes/productRoutes');
 const orderRouter = require('./routes/orderRoute');
 const authRoutes = require('./routes/authRoutes');
+const categoryRouter = require('./routes/categoryRoutes');
 
 dotenv.config();
 connectDB();
@@ -31,6 +32,7 @@ app.use('/api/auth', authRoutes);
 app.use("/uploads", express.static("uploads")); 
 app.use('/api/product', productRouter);
 app.use('/api/order', orderRouter);
+app.use('/api/category', categoryRouter);
 
 app.use((req, res, next) => {
     res.status(404).json({ message: 'API endpoint not found' });
