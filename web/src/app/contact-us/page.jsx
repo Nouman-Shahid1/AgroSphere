@@ -10,6 +10,7 @@ export default function Contact() {
             <div className="text-center">
               <h2 className="text-4xl text-green-900 font-extrabold text-gray-900 sm:text-5xl">
                 Get in Touch with Agro-Sphere
+                Get in Touch with Agro-Sphere
               </h2>
               <p className="mt-4 text-lg text-gray-600">
                 We'd love to hear from you! Whether you have a question, feedback, or need assistance, our team is here to help.
